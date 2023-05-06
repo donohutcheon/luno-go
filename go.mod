@@ -8,4 +8,4 @@ require (
 	golang.org/x/time v0.3.0
 )
 
-replace github.com/luno/luno-go => github.com/donohutcheon/luno-go v0.0.0-20230506204056-2843846fa7ef
+replace github.com/luno/luno-go => github.com/donohutcheon/luno-go v0.0.0-20230506211338-0d9b4b5dc06a
