@@ -12,16 +12,11 @@ func printOrderBook(c *streaming.Conn) {
 	log.Printf("%d: %s %v %v\n", ss.Sequence, ss.Status, ss.Bids[0], ss.Asks[0])
 }
 
-func printUpdate(u streaming.Update) {
-	log.Printf("%d: %s %v %v\n", u.Sequence, u.)
-}
-
 func main() {
 	keyID := "key here"
 	keySecret := "key secret here"
 
-	c, err := streaming.Dial(keyID, keySecret, "XBTZAR", streaming.WithConnectCallback(printOrderBook),
-		streaming.WithUpdateCallback(printUpdate))
+	c, err := streaming.Dial(keyID, keySecret, "XBTZAR", streaming.WithConnectCallback(printOrderBook))
 	if err != nil {
 		log.Fatal(err)
 	}
