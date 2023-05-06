@@ -1081,24 +1081,6 @@ type ListTradesRequest struct {
 	// this parameter to either restrict to a shorter window or to iterate over
 	// the trades in case you need more than the 100 most recent trades.
 	Since Time `json:"since" url:"since"`
-
-	// Filter to trades before this timestamp (Unix milliseconds).
-	Before Time `json:"before" url:"before"`
-
-	// Filter to trades from (including) this sequence number.
-	// Default behaviour is not to include this filter.
-	AfterSeq int64 `json:"after_seq" url:"after_seq"`
-
-	// Filter to trades before (excluding) this sequence number.
-	// Default behaviour is not to include this filter.
-	BeforeSeq int64 `json:"before_seq" url:"before_seq"`
-
-	// If set to true, sorts trades in descending order, otherwise ascending
-	// order will be assumed.
-	SortDesc bool `json:"sort_desc" url:"sort_desc"`
-
-	// Limit to this number of trades (default 100).
-	Limit int64 `json:"limit" url:"limit"`
 }
 
 // ListTradesResponse is the response struct for ListTrades.
