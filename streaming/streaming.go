@@ -212,7 +212,7 @@ func (c *Conn) connect() error {
 			continue
 		}
 
-		fmt.Printf("Raw date: %s", data)
+		fmt.Printf("Raw data: %s\n", data)
 		var u Update
 		if err := json.Unmarshal(data, &u); err != nil {
 			return fmt.Errorf("failed to unmarshal update: %w", err)
