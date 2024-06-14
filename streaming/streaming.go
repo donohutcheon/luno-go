@@ -343,6 +343,13 @@ func (c *Conn) processUpdate(u Update) (bool, error) {
 
 	// Process trades
 	for _, t := range u.TradeUpdates {
+		_, isBuy := c.asks[t.MakerOrderID]
+		_, isSell := c.bids[t.MakerOrderID]
+		if isBuy == isSell {
+			return false, errors.New("streaming: inconclusive trade direction")
+		}
+		t.IsBuy = isBuy
+
 		if err := c.processTrade(*t); err != nil {
 			return false, err
 		}
@@ -407,6 +414,7 @@ func (c *Conn) processTrade(t TradeUpdate) error {
 		Counter:      t.Counter,
 		MakerOrderID: t.MakerOrderID,
 		TakerOrderID: t.TakerOrderID,
+		IsBuy:        t.IsBuy,
 		OrderID:      t.OrderID,
 	}
 

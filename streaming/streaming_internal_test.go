@@ -208,6 +208,7 @@ func TestReceivedUpdate(t *testing.T) {
 					Counter:      decimal.NewFromFloat64(1, 1),
 					MakerOrderID: "6",
 					TakerOrderID: "36",
+					IsBuy:        true,
 				},
 				seq:    2,
 				status: luno.StatusActive,

@@ -32,6 +32,8 @@ type TradeUpdate struct {
 	TakerOrderID string `json:"taker_order_id"`
 	// Deprecated: Use MakerOrderID.
 	OrderID string `json:"order_id"`
+	// IsBuy indicates whether the taker matched an order in the ask order book.
+	IsBuy bool `json:"is_buy"`
 }
 
 type CreateUpdate struct {
